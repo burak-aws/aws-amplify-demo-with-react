@@ -6,7 +6,7 @@ function App() {
     fName: "",
     lName: "",
     email: "",
-    question: "",
+    comment: "",
   });
   function handleChange(event) {
     const value = event.target.value;
@@ -30,14 +30,19 @@ function App() {
         [name]: value,
       };
     });
+    // console.log(contact.fName);
+    // console.log(contact.lName);
+    // console.log(contact.email);
+    // console.log(contact.comment);
     axios
       .post(
-        `https://cbpt0rrntj.execute-api.eu-west-1.amazonaws.com/post`,
+        `https://ddjnbv88ng.execute-api.us-east-1.amazonaws.com/post/`,
+        // `https://eqbtfy9xj2.execute-api.us-east-1.amazonaws.com/default/serverlessAppFunction`,
         {
           fName: contact.fName,
           lName: contact.lName,
           email: contact.email,
-          question: contact.question,
+          comment: contact.comment,
         }
       )
       .then((res) => {
@@ -49,16 +54,17 @@ function App() {
         fName: "",
         lName: "",
         email: "",
-        question: "",
+        comment: "",
       };
     });
   }
 
   return (
     <div className="container">
-      <h1>
-        Welcome to AWS Immersion Day {contact.fName} {contact.lName}
-      </h1>
+      <h1>Welcome to Serverless Workshop !</h1>
+      <h2>
+        {contact.fName} {contact.lName}
+      </h2>
       <br></br>
       <form onSubmit={handleSubmit}>
         <input
@@ -81,9 +87,9 @@ function App() {
         />
         <input
           onChange={handleChange}
-          name="question"
-          placeholder="any questions?"
-          value={contact.question}
+          name="comment"
+          placeholder="Comment"
+          value={contact.comment}
         />
         <button>Submit</button>
       </form>
