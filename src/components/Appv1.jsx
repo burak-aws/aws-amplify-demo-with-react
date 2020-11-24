@@ -36,7 +36,7 @@ function App() {
     // console.log(contact.comment);
     axios
       .post(
-        `https://ddjnbv88ng.execute-api.us-east-1.amazonaws.com/post/`,
+        `https://cbpt0rrntj.execute-api.eu-west-1.amazonaws.com/post/`,
         // `https://eqbtfy9xj2.execute-api.us-east-1.amazonaws.com/default/serverlessAppFunction`,
         {
           fName: contact.fName,
